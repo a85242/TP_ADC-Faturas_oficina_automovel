@@ -19,3 +19,8 @@ def pergunta_id(questao, lista, mostra_lista=False):
             return id
         else:
             print(f"id inexistente. Tente de novo. Valores admitidos {0} - {len(lista)}")
+
+def pause():
+    """Faz uma pausa no programa e espera que o utilizador pressione ENTER"""
+
+    input("Pressione ENTER para continuar...")
