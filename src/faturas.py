@@ -41,4 +41,4 @@ def imprime_lista_de_faturas(lista_de_faturas):
     :param lista_de_faturas: Lista de faturas a ser impressa
     """
 
-    io_terminal.imprime_lista("listagem das faturas", lista_de_faturas)
+    imprime_lista("listagem das faturas", lista_de_faturas)
