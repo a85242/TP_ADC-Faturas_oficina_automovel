@@ -7,12 +7,11 @@ def cria_nova_fatura(lista_de_clientes, lista_de_veiculos):
 
     id_cliente = pergunta_id(questao="Qual o id do cliente?", lista=lista_de_clientes, mostra_lista=True)
     id_veiculo = pergunta_id(questao="Qual o id do veiculo?", lista=lista_de_veiculos, mostra_lista=True)
-
-    # TODO: Pedir o resto dos dados da fatura, e não esquecer de os guardar no dicionario
-    # ...
+    desc = input('Descrição da fatura: ')
 
     fatura = {"cliente": id_cliente,
               "veiculo": id_veiculo,
-              "data": date.today()}
+              "data": date.today(),
+              "desc": desc}
 
     return fatura
