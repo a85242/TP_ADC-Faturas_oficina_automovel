@@ -4,10 +4,10 @@ from tabulate import tabulate
 def pergunta_id(questao, lista, mostra_lista=False):
     """TODO: documentação
 
-    :param questao:
-    :param lista:
-    :param mostra_lista:
-    :return:
+    :param questao: guarda qual é o id do utilizador
+    :param lista: guarda o dado na tabela
+    :param mostra_lista: apresenta os dados numa tabela
+    :return: apresenta a tabela 
     """
 
     if mostra_lista:
