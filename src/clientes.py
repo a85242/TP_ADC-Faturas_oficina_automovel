@@ -7,8 +7,6 @@ def cria_novo_cliente():
 
     :return: dicionario com o novo cliente, {"nome": <<nome>>, "nif": <<nif>>, ...}
     """
-    # TODO: pedir os dados do cliente e não esquecer de os devolver
-    # ...
     nome = input("Nome? ")
     morada = input("Morada? ")
     localidade = input("Localidade?")
