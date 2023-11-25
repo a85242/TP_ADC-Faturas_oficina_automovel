@@ -88,10 +88,12 @@ def cria_novo_veiculo():
 
     return veiculo
 
-# TODO: Copie para aqui o código de cada uma das funções nos
-# ficheiros com o nome veiculos-*.py e faça um commit de cada vez
-# Quando este ficheiro estiver completo com todas as suas funções,
-# deve ser o unico ficheiro veiculos.py existente, deve apagar
-# todos os outros ficheiros veiculos-*.py, e inclusive estes comentários
+def imprime_lista_de_veiculos(lista_de_veiculos):
+    """Imprime a lista de veículos
+    
+    :param lista_de_veiculos: Lista de veículos com o seu dicionario.
+    :type lista_de_veiculos: list
+    """
 
-# ...
+    imprime_lista(cabecalho="Lista de Veiculos", lista=lista_de_veiculos)
+
