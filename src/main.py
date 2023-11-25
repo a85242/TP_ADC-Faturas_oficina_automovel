@@ -6,9 +6,6 @@ from io_terminal import pause
 from veiculos import cria_novo_veiculo, imprime_lista_de_veiculos
 
 
-if __name__ == "__main__":
-    menu()
-
 def menu():
     """Menu principal da aplicação"""
 
@@ -32,7 +29,7 @@ def menu():
         *********************************************************************
         """)
 
-        op = input("opcao?").lower()
+        op = input("opcao: ").lower()
 
         if op == "x":
             exit()
@@ -55,7 +52,7 @@ def menu():
 
         elif op == "nf":
             if len(lista_de_clientes) == 0 or len(lista_de_veiculos) == 0:
-                print("Não há clientes ou veiculos registados...")
+                print("Não há clientes ou veiculos registados.")
                 continue
 
             nova_fatura = cria_nova_fatura(lista_de_clientes, lista_de_veiculos)
@@ -72,3 +69,7 @@ def menu():
         elif op == "lf":
             imprime_lista_de_faturas(lista_de_faturas)
             pause()
+
+
+if __name__ == "__main__":
+    menu()
