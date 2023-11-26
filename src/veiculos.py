@@ -1,4 +1,5 @@
 from io_terminal import imprime_lista
+import texto as t
 
 nome_ficheiro_lista_de_veiculos = "lista_de_veiculos.pk"
 
@@ -9,43 +10,43 @@ def cria_novo_veiculo():
         {"marca": <<marca>>, "matricula": <<matricula>>, ...}
     """
 
-    marca = input("marca? ")
-    matricula = input("matricula? ").upper()
-    reboque = bool(input("reboque? "))
-    data = input("data? (YYYY-MM-DD)")
-    modelo = input("Modelo? ")
-    homologacao = int(input("Homologação nº? "))
-    categoria = input("Categoria? ")
-    tipo = input("Tipo? ")
-    Cor = input("Cor? ")
-    n_quadro = int(input("Nº quadro? "))
-    n_motor = int(input("Nº de motor? "))
-    combustivel = input("Combustível? ")
-    n_cilindros = int(input("Nº de cilindros? "))
-    cilindrada = input("Cilindrada? ")
-    pneus_frente = input("Pneumáticos: Frente? ")
-    retaguarda_pneus = input("Retaguarda pneus? ")
-    peso_max_admis = input("Peso máximo admissíveis: Frente? ")
-    retaguarda_pma = input("Retaguarda peso máximo admissível? ")
-    rebocavel = bool(input("Rebocável? "))
-    c_trav = bool(input("Com travão? "))
-    s_trav = bool(input("Sem travão? "))
-    poder_elevacao = input("Poder de elevação? ")
-    tipo_caixa = input("Tipo da caixa? ")
-    comprim_max_caixa = input("Comprimento máximo da caixa? ")
-    larg_caixa = input("Largura da caixa? ")
-    distancia_eixos = input("Distância entre eixos? ")
-    peso_bruto = input("Peso bruto total? ")
-    tara = input("Tara? ")
-    portas = input("nº total de portas? ")
-    direita = input("Portas Direitas? ")
-    esquerda = input("Portas Esquerdas? ")
-    retaguarda_portas = input("Porta Retaguarda? ")
-    lotacao = int(input("Lotação? "))
-    matricula_ant = input("Matrícula anterior? ").upper()
-    data_ant = input("Data anterior? (YYYY-MM-DD)")
-    pais = input("País de Origem? ")
-    anot_esp = input("Anotações especiais? ")
+    marca = input(f"{t.marca[t.LANG]}: ")
+    matricula = input(f"{t.matricula[t.LANG]}: ").upper()
+    reboque = bool(input(f"{t.reboque[t.LANG]}: "))
+    data = input(f"{t.data[t.LANG]}: (YYYY-MM-DD)")
+    modelo = input(f"{t.modelo[t.LANG]}: ")
+    homologacao = int(input(f"{t.homologacao[t.LANG]}: "))
+    categoria = input(f"{t.categoria[t.LANG]}: ")
+    tipo = input(f"{t.tipo[t.LANG]}: ")
+    cor = input(f"{t.cor[t.LANG]}: ")
+    n_quadro = int(input(f"{t.n_quadro[t.LANG]}: "))
+    n_motor = int(input(f"{t.n_motor[t.LANG]}: "))
+    combustivel = input(f"{t.combustivel[t.LANG]}: ")
+    n_cilindros = int(input(f"{t.n_cilindros[t.LANG]}: "))
+    cilindrada = input(f"{t.cilindrada[t.LANG]}: ")
+    pneus_frente = input(f"{t.pneus_frente[t.LANG]}: ")
+    retaguarda_pneus = input(f"{t.retaguarda_pneus[t.LANG]}: ")
+    peso_max_admis = input(f"{t.peso_max_admis[t.LANG]}: ")
+    retaguarda_pma = input(f"{t.retaguarda_pma[t.LANG]}: ")
+    rebocavel = bool(input(f"{t.rebocavel[t.LANG]}: "))
+    c_trav = bool(input(f"{t.c_trav[t.LANG]}: "))
+    s_trav = bool(input(f"{t.s_trav[t.LANG]}: "))
+    poder_elevacao = input(f"{t.poder_elevacao[t.LANG]}: ")
+    tipo_caixa = input(f"{t.tipo_caixa[t.LANG]}: ")
+    comprim_max_caixa = input(f"{t.comprim_max_caixa[t.LANG]}: ")
+    larg_caixa = input(f"{t.larg_caixa[t.LANG]}: ")
+    distancia_eixos = input(f"{t.distancia_eixos[t.LANG]}: ")
+    peso_bruto = input(f"{t.peso_bruto[t.LANG]}: ")
+    tara = input(f"{t.tara[t.LANG]}: ")
+    portas = input(f"{t.portas[t.LANG]}: ")
+    direita = input(f"{t.direita[t.LANG]}: ")
+    esquerda = input(f"{t.esquerda[t.LANG]}: ")
+    retaguarda_portas = input(f"{t.retaguarda_portas[t.LANG]}: ")
+    lotacao = int(input(f"{t.lotacao[t.LANG]}: "))
+    matricula_ant = input(f"{t.matricula_ant[t.LANG]}: ").upper()
+    data_ant = input(f"{t.data_ant[t.LANG]}: (YYYY-MM-DD)")
+    pais = input(f"{t.pais[t.LANG]}: ")
+    anot_esp = input(f"{t.anot_esp[t.LANG]}: ")
 
     veiculo = {"marca": marca,
                "matricula": matricula,
@@ -55,7 +56,7 @@ def cria_novo_veiculo():
                "Nº de homologação": homologacao,
                "Categoria": categoria,
                "Tipo": tipo,
-               "Cor": Cor,
+               "Cor": cor,
                "Nº Quadro": n_quadro,
                "Nº de Motor": n_motor,
                "Tipo de combustível": combustivel,
@@ -95,5 +96,5 @@ def imprime_lista_de_veiculos(lista_de_veiculos):
     :type lista_de_veiculos: list
     """
 
-    imprime_lista(cabecalho="Lista de Veiculos", lista=lista_de_veiculos)
+    imprime_lista(cabecalho=t.list_veiculos[t.LANG], lista=lista_de_veiculos)
 
