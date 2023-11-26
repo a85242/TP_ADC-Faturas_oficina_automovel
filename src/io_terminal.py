@@ -23,7 +23,7 @@ def pergunta_id(questao, lista, mostra_lista=False):
 def pause():
     """Faz uma pausa no programa e espera que o utilizador pressione ENTER"""
 
-    input("Pressione ENTER para continuar...")
+    input(t.pausa[t.LANG])
 
 def imprime_lista(cabecalho, lista):
     """Imprime a :attr:`lista` na forma de uma tabela com um cabeçalho
