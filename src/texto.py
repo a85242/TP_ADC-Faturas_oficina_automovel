@@ -310,132 +310,128 @@ pais = {
     "es": "País de origen del vehículo",
     "en": "Country of origin of the vehicle",
 }
-anot_esp = {
-    "pt": "Anotações especiais",
-    "es": "Observaciones especiales",
-    "en": "Special notes",
-}
-
-
-
-# faltariam traduzir
 reboque = {
     "pt": "Reboque",
-    "es": "Reboque",
-    "en": "Reboque",
+    "es": "Remolque",
+    "en": "Trailer",
 }
 n_quadro = {
     "pt": "Nº quadro",
-    "es": "Nº quadro",
-    "en": "Nº quadro",
+    "es": "Nº cuadro",
+    "en": "Vehicle Idendification Number (VIN)",
 }
 n_motor = {
     "pt": "Nº de motor",
     "es": "Nº de motor",
-    "en": "Nº de motor",
+    "en": "Engine Number",
 }
 n_cilindros = {
     "pt": "Nº de cilindros",
     "es": "Nº de cilindros",
-    "en": "Nº de cilindros",
+    "en": "Nº of cylinders",
 }
 cilindrada = {
     "pt": "Cilindrada",
     "es": "Cilindrada",
-    "en": "Cilindrada",
+    "en": "Displacement",
 }
 pneus_frente = {
     "pt": "Pneumáticos frente",
-    "es": "Pneumáticos frente",
-    "en": "Pneumáticos frente",
+    "es": "Neumáticos frente",
+    "en": "Front tires",
 }
 retaguarda_pneus = {
     "pt": "Pneus da retaguarda",
-    "es": "Pneus da retaguarda",
-    "en": "Pneus da retaguarda",
+    "es": "Neumáticos de la retaguardia",
+    "en": "Rear tires",
 }
 peso_max_admis = {
     "pt": "Peso máximo admissíveis da frente",
-    "es": "Peso máximo admissíveis da frente",
-    "en": "Peso máximo admissíveis da frente",
+    "es": "Peso máximo admisible del frente",
+    "en": "Maximum allowable front weight",
 }
 retaguarda_pma = {
     "pt": "Peso máximo admissível da retaguarda",
-    "es": "Peso máximo admissível da retaguarda",
-    "en": "Peso máximo admissível da retaguarda",
+    "es": "Peso máximo admisible de la retaguardia",
+    "en": "Maximum allowable weight of the rear ",
 }
 rebocavel = {
     "pt": "Veículo Rebocável",
-    "es": "Veículo Rebocável",
-    "en": "Veículo Rebocável",
+    "es": "Vehículo Remolcable",
+    "en": "Towable Vehicle",
 }
 c_trav = {
     "pt": "Veículo com travão",
-    "es": "Veículo com travão",
-    "en": "Veículo com travão",
+    "es": "Vehículo con freno",
+    "en": "Vehicle with brake",
 }
 s_trav = {
     "pt": "Veículo sem travão",
-    "es": "Veículo sem travão",
-    "en": "Veículo sem travão",
+    "es": "Vehículo sin freno",
+    "en": "Vehicle without brake",
 }
 poder_elevacao = {
     "pt": "Poder de Elevação",
-    "es": "Poder de Elevação",
-    "en": "Poder de Elevação",
+    "es": "Poder de Elevación",
+    "en": "Lifting Power",
 }
 tipo_caixa = {
     "pt": "Tipo da caixa",
-    "es": "Tipo da caixa",
-    "en": "Tipo da caixa",
+    "es": "Tipo de caja",
+    "en": "Gearbox type",
 }
 comprim_max_caixa = {
     "pt": "Comprimento máximo da caixa",
-    "es": "Comprimento máximo da caixa",
-    "en": "Comprimento máximo da caixa",
+    "es": "Longitud máxima de la caja",
+    "en": "Maximum gearbox length",
 }
 larg_caixa = {
     "pt": "Largura da caixa",
-    "es": "Largura da caixa",
-    "en": "Largura da caixa",
+    "es": "Anchura de la caja",
+    "en": "Gearbox width",
 }
 distancia_eixos = {
     "pt": "Distância entre eixos",
-    "es": "Distância entre eixos",
-    "en": "Distância entre eixos",
+    "es": "Distancia entre ejes",
+    "en": "Wheelbase",
 }
 peso_bruto = {
     "pt": "Peso bruto total",
     "es": "Peso bruto total",
-    "en": "Peso bruto total",
+    "en": "Gross weight",
 }
 tara = {
     "pt": "Tara",
-    "es": "Tara",
-    "en": "Tara",
+    "es": "Peso Vacío",
+    "en": "Unladen weight",
 }
 portas = {
     "pt": "Nº total de Portas",
-    "es": "Nº total de Portas",
-    "en": "Nº total de Portas",
+    "es": "Nº total de Puertas",
+    "en": "Total number of doors",
 }
 direita = {
     "pt": "Nº portas direitas",
-    "es": "Nº portas direitas",
-    "en": "Nº portas direitas",
+    "es": "Nº puertas derechas",
+    "en": "Number of right doors",
 }
 esquerda = {
     "pt": "Nº portas esquerdas",
-    "es": "Nº portas esquerdas",
-    "en": "Nº portas esquerdas",
+    "es": "Nº puertas izquierdas",
+    "en": "Number of left doors",
 }
 retaguarda_portas = {
     "pt": "Nº portas retaguarda",
-    "es": "Nº portas retaguarda",
-    "en": "Nº portas retaguarda",
+    "es": "Nº puertas retaguarda",
+    "en": "Number of rear doors",
 }
 lotacao = {
     "pt": "Lotação",
-    "es": "Lotação",
-    "en": "Lotação",
+    "es": "Capacidad de asientos",
+    "en": "Seating Capacity",
+}
+anot_esp = {
+    "pt": "Anotações especiais",
+    "es": "Observaciones especiales",
+    "en": "Special notes",
 }
