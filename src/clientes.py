@@ -9,20 +9,20 @@ def cria_novo_cliente():
     :return: dicionario com o novo cliente, {"nome": <<nome>>, "nif": <<nif>>, ...}
     """
 
-    nome = input( f"{t.nome[t.LANG]}? ")
-    morada = input( f"{t.morada[t.LANG]}? ")
-    localidade = input( f"{t.localidade[t.LANG]}? ")
-    c_postal = input( f"{t.c_postal[t.LANG]}? ")
-    nif = int(input( f"{t.nif[t.LANG]}? "))
-    tel = int(input( f"{t.tel[t.LANG]}? "))
-    fax = input( f"{t.fax[t.LANG]}? ")
-    email = input( f"{t.email[t.LANG]}? ")
-    doc_ident = input( f"{t.doc_ident[t.LANG]}? ")
-    emissor = input( f"{t.emissor[t.LANG]}? ")
-    validade = input( f"{t.validade[t.LANG]}? ")
-    cacp = input( f"{t.cacp[t.LANG]}? ")
-    data = input( f"{t.data[t.LANG]} (YYYY-MM-DD)? ")
-    assinatura = input( f"{t.assinatura[t.LANG]}? ")
+    nome = input( f"{t.nome[t.LANG]}: ")
+    morada = input( f"{t.morada[t.LANG]}: ")
+    localidade = input( f"{t.localidade[t.LANG]}: ")
+    c_postal = input( f"{t.c_postal[t.LANG]}: ")
+    nif = int(input( f"{t.nif[t.LANG]}: "))
+    tel = int(input( f"{t.tel[t.LANG]}: "))
+    fax = input( f"{t.fax[t.LANG]}: ")
+    email = input( f"{t.email[t.LANG]}: ")
+    doc_ident = input( f"{t.doc_ident[t.LANG]}: ")
+    emissor = input( f"{t.emissor[t.LANG]}: ")
+    validade = input( f"{t.validade[t.LANG]}: ")
+    cacp = input( f"{t.cacp[t.LANG]}: ")
+    data = input( f"{t.data[t.LANG]} (YYYY-MM-DD): ")
+    assinatura = input( f"{t.assinatura[t.LANG]}: ")
 
     cliente = {"Nome": nome,
                "Morada": morada,
