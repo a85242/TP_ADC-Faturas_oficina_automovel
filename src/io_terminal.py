@@ -1,5 +1,5 @@
 from tabulate import tabulate
-
+import texto as t
 
 def pergunta_id(questao, lista, mostra_lista=False):
     """TODO: documentação
@@ -18,7 +18,7 @@ def pergunta_id(questao, lista, mostra_lista=False):
         if 0 <= id < len(lista):
             return id
         else:
-            print(f"id inexistente. Tente de novo. Valores admitidos {0} - {len(lista)}")
+            print(t.id_inexistente[t.LANG].format(len(lista)))
 
 def pause():
     """Faz uma pausa no programa e espera que o utilizador pressione ENTER"""
@@ -46,7 +46,7 @@ def imprime_lista(cabecalho, lista):
     print(cabecalho)
 
     if (len(lista) == 0):
-        print("Lista vazia")
+        print(t.lista_vazia[t.LANG])
     else:
         # cabecalho da tabela
         lista_a_imprimir = [["id"] + list(lista[0].keys())]
