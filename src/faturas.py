@@ -2,6 +2,8 @@ from datetime import date
 
 from io_terminal import imprime_lista, pergunta_id
 
+import texto as t
+
 nome_ficheiro_lista_de_faturas = "lista_de_faturas.pk"
 
 
@@ -12,9 +14,9 @@ def cria_nova_fatura(lista_de_clientes, lista_de_veiculos):
         {"cliente": <<id_cliente>>, "veiculo": <<id_veiculo>>, "data": <<data>>, ...}
     """
 
-    id_cliente = pergunta_id(questao="Qual o id do cliente?", lista=lista_de_clientes, mostra_lista=True)
-    id_veiculo = pergunta_id(questao="Qual o id do veiculo?", lista=lista_de_veiculos, mostra_lista=True)
-    desc = input("Descrição da fatura: ")
+    id_cliente = pergunta_id(questao=t.qualid_cliente[t.LANG], lista=lista_de_clientes, mostra_lista=True)
+    id_veiculo = pergunta_id(questao=t.qualid_veiculo[t.LANG], lista=lista_de_veiculos, mostra_lista=True)
+    desc = input(t.desc_fatura[t.LANG])
 
     fatura = {"cliente": id_cliente,
               "veiculo": id_veiculo,
@@ -41,4 +43,4 @@ def imprime_lista_de_faturas(lista_de_faturas):
     :param lista_de_faturas: Lista de faturas a ser impressa
     """
 
-    imprime_lista("listagem das faturas", lista_de_faturas)
+    imprime_lista(t.list_faturas[t.LANG], lista_de_faturas)
