@@ -260,6 +260,11 @@ matricula = {
     "es": "Matrícula",
     "en": "Registration plate",
 }
+reboque = {
+    "pt": "Reboque",
+    "es": "Remolque",
+    "en": "Trailer",
+}
 data = {
     "pt": "Data de aquisição",
     "es": "Fecha de adquisición",
@@ -290,31 +295,6 @@ cor = {
     "es": "Color",
     "en": "Color",
 }
-combustivel = {
-    "pt": "Tipo de combustível",
-    "es": "Tipo de combustible",
-    "en": "Fuel type",
-}
-matricula_ant = {
-    "pt": "Matrícula anterior",
-    "es": "Matrícula anterior",
-    "en": "Previous registration plate",
-}
-data_ant = {
-    "pt": "Data de aquisição da matrícula anterior",
-    "es": "Fecha de adquisición de la atrícula anterior",
-    "en": "Date of acquisition of the previous registration plate",
-}
-pais = {
-    "pt": "País de origem do veículo",
-    "es": "País de origen del vehículo",
-    "en": "Country of origin of the vehicle",
-}
-reboque = {
-    "pt": "Reboque",
-    "es": "Remolque",
-    "en": "Trailer",
-}
 n_quadro = {
     "pt": "Nº quadro",
     "es": "Nº cuadro",
@@ -324,6 +304,11 @@ n_motor = {
     "pt": "Nº de motor",
     "es": "Nº de motor",
     "en": "Engine Number",
+}
+combustivel = {
+    "pt": "Tipo de combustível",
+    "es": "Tipo de combustible",
+    "en": "Fuel type",
 }
 n_cilindros = {
     "pt": "Nº de cilindros",
@@ -429,6 +414,21 @@ lotacao = {
     "pt": "Lotação",
     "es": "Capacidad de asientos",
     "en": "Seating Capacity",
+}
+matricula_ant = {
+    "pt": "Matrícula anterior",
+    "es": "Matrícula anterior",
+    "en": "Previous registration plate",
+}
+data_ant = {
+    "pt": "Data de aquisição da matrícula anterior",
+    "es": "Fecha de adquisición de la atrícula anterior",
+    "en": "Date of acquisition of the previous registration plate",
+}
+pais = {
+    "pt": "País de origem do veículo",
+    "es": "País de origen del vehículo",
+    "en": "Country of origin of the vehicle",
 }
 anot_esp = {
     "pt": "Anotações especiais",
