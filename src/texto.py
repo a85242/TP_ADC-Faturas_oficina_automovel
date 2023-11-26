@@ -166,7 +166,7 @@ grav_cancelada = {
 
 # io_terminal.py
 
-textoa = {
+id_inexistente = {
     "pt": "id inexistente. Tente de novo. Valores admitidos 0 - {}",
     "es": "id inexistente. Intente de nuevo. Valores aceptados 0 - {}",
     "en": "non-existent id. Try again. Allowed values 0 - {}",
