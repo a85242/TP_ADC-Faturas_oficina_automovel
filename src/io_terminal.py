@@ -2,7 +2,7 @@ from tabulate import tabulate
 import texto as t
 
 def pergunta_id(questao, lista, mostra_lista=False):
-    """Recebe a :attr:`questao` e guarda a como id.
+    """Recebe a :attr:`questao` e guarda-a como id.
     Imprime a :attr:`lista` na forma de uma tabela com um cabeçalho
 
     :param questao: guarda qual é o id do utilizador
