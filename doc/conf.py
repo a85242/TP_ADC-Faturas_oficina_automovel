@@ -9,7 +9,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../src'))
-                                   
+
 project = 'Trabalho_ADC'
 copyright = '2023, a79370'
 author = 'a79370'

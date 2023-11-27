@@ -5,11 +5,14 @@ from faturas import nome_ficheiro_lista_de_faturas
 
 from veiculos import nome_ficheiro_lista_de_veiculos
 
+import texto as t
+
 def carrega_as_listas_dos_ficheiros():
-    """A função carrega as lsitas de todos os ficheiros
-    :Para lista_de_veiculos
-    :Para lista_de_clientes
-    :Para lista_de_faturas
+
+
+    """A função carrega as listas de todos os ficheiros
+
+    :return: as listas (lista_de_veiculos, lista_de_clientes, lista_de_faturas)
     """
 
     lista_de_veiculos = le_de_ficheiro(nome_ficheiro_lista_de_veiculos)
@@ -27,13 +30,13 @@ def guarda_as_listas_em_ficheiros(lista_de_veiculos, lista_de_clientes, lista_de
     :param lista_de_faturas:
     """
 
-    op = input("Os dados nos ficheiros serão sobrepostos. Continuar (s/N)?")
+    op = input(t.guarda_ficheiros[t.LANG])
     if op in ['s', 'S']:
         guarda_em_ficheiro(nome_ficheiro_lista_de_veiculos, lista_de_veiculos)
         guarda_em_ficheiro(nome_ficheiro_lista_de_clientes, lista_de_clientes)
         guarda_em_ficheiro(nome_ficheiro_lista_de_faturas, lista_de_faturas)
     else:
-        print("Gravação cancelada...")
+        print(t.grav_cancelada[t.LANG])
 
 
 def guarda_em_ficheiro(nome_do_ficheiro, dados):

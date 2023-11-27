@@ -4,7 +4,7 @@ from io_ficheiros import (carrega_as_listas_dos_ficheiros,
                           guarda_as_listas_em_ficheiros)
 from io_terminal import pause
 from veiculos import cria_novo_veiculo, imprime_lista_de_veiculos
-
+import texto as t
 
 def menu():
     """Menu principal da aplicação"""
@@ -18,21 +18,24 @@ def menu():
         *********************************************************************
         :    (-: OFICINA BARATINHA - RESISTIMOS A QUALQUER ORÇAMENTO :-)    :
         *********************************************************************
-        :                                                                   :
-        : nc - novo cliente         lc - listagem de clientes               :
-        : nv - novo veiculo         lv - listagem de veiculos               :
-        : nf - nova fatura          lf - listagem das faturas               :
-        : ...                                                               :
-        : g - guarda tudo           c - carrega tudo                        :
-        : x - sair                                                          :
-        :                                                                   :
+        :                                                                   :\n""",
+'       : nc - {: <20}'.format(t.novo_cliente[t.LANG]),'lc - {: <34}'.format(t.list_clientes[t.LANG]),":\n",
+'       : nv - {: <20}'.format(t.novo_veiculo[t.LANG]),'lv - {: <34}'.format(t.list_veiculos[t.LANG]),":\n",
+'       : nf - {: <20}'.format(t.nova_fatura[t.LANG]),'lf - {: <34}'.format(t.list_faturas[t.LANG]),":\n",
+'       : ...                                                               :\n',
+'       : g - {: <20} '.format(t.guarda_tudo[t.LANG]),' c - {: <34}'.format(t.carrega_tudo[t.LANG]),":\n",
+'       : x - {: <20} '.format(t.sair[t.LANG]),' l - {: <34}'.format(t.mudarlg[t.LANG]),":\n",
+"""       :                                                                   :
         *********************************************************************
         """)
 
-        op = input("opcao: ").lower()
+        op = input(t.opcao[t.LANG]).lower()
 
         if op == "x":
             exit()
+
+        elif op == "l":
+            t.mudar_lingua()
 
         elif op == "g":
             guarda_as_listas_em_ficheiros(lista_de_veiculos, lista_de_clientes, lista_de_faturas)
@@ -52,7 +55,7 @@ def menu():
 
         elif op == "nf":
             if len(lista_de_clientes) == 0 or len(lista_de_veiculos) == 0:
-                print("Não há clientes ou veiculos registados.")
+                print(t.nao_ha_nada[t.LANG])
                 continue
 
             nova_fatura = cria_nova_fatura(lista_de_clientes, lista_de_veiculos)

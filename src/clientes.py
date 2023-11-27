@@ -1,4 +1,5 @@
 from io_terminal import imprime_lista
+import texto as t
 
 nome_ficheiro_lista_de_clientes = "lista_de_clientes.pk"
 
@@ -7,20 +8,21 @@ def cria_novo_cliente():
 
     :return: dicionario com o novo cliente, {"nome": <<nome>>, "nif": <<nif>>, ...}
     """
-    nome = input("Nome? ")
-    morada = input("Morada? ")
-    localidade = input("Localidade?")
-    c_postal = input("Código Postal? ")
-    nif = int(input("NIF? "))
-    tel = int(input("Telefone / Telemóvel? "))
-    fax = input("Fax? ")
-    email = input("Email? ")
-    doc_ident = input("Documento Identificação Nº? ")
-    emissor = input("Emissor? ")
-    validade = input("Validade (Ano)? ")
-    cacp = input("Código de Acesso a Certidão Permanente (só empresas)? ")
-    data = input("Data (YYYY-MM-DD)? ")
-    assinatura = input("Assinatura? ")
+
+    nome = input( f"{t.nome[t.LANG]}: ")
+    morada = input( f"{t.morada[t.LANG]}: ")
+    localidade = input( f"{t.localidade[t.LANG]}: ")
+    c_postal = input( f"{t.c_postal[t.LANG]}: ")
+    nif = int(input( f"{t.nif[t.LANG]}: "))
+    tel = int(input( f"{t.tel[t.LANG]}: "))
+    fax = input( f"{t.fax[t.LANG]}: ")
+    email = input( f"{t.email[t.LANG]}: ")
+    doc_ident = input( f"{t.doc_ident[t.LANG]}: ")
+    emissor = input( f"{t.emissor[t.LANG]}: ")
+    validade = input( f"{t.validade[t.LANG]}: ")
+    cacp = input( f"{t.cacp[t.LANG]}: ")
+    data = input( f"{t.data[t.LANG]} (YYYY-MM-DD): ")
+    assinatura = input( f"{t.assinatura[t.LANG]}: ")
 
     cliente = {"Nome": nome,
                "Morada": morada,
@@ -46,4 +48,4 @@ def imprime_lista_de_clientes(lista_de_clientes):
     :param lista_de_veiculos: Lista de clientes com o seu dicionario.
     :type lista_de_veiculos: list
     """
-    imprime_lista(cabecalho="Lista de Clientes", lista=lista_de_clientes)
+    imprime_lista(cabecalho=t.list_clientes[t.LANG], lista=lista_de_clientes)
