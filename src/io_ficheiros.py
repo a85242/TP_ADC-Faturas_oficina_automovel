@@ -8,7 +8,10 @@ from veiculos import nome_ficheiro_lista_de_veiculos
 import texto as t
 
 def carrega_as_listas_dos_ficheiros():
-    """TODO: documentação"""
+    """A função carrega as listas de todos os ficheiros
+
+    :return: as listas (lista_de_veiculos, lista_de_clientes, lista_de_faturas)
+    """
 
     lista_de_veiculos = le_de_ficheiro(nome_ficheiro_lista_de_veiculos)
     lista_de_clientes = le_de_ficheiro(nome_ficheiro_lista_de_clientes)
@@ -18,7 +21,7 @@ def carrega_as_listas_dos_ficheiros():
 
 
 def guarda_as_listas_em_ficheiros(lista_de_veiculos, lista_de_clientes, lista_de_faturas):
-    """TODO: documentação
+    """A função Guarda as listas em ficheiros
 
     :param lista_de_clientes:
     :param lista_de_veiculos:
