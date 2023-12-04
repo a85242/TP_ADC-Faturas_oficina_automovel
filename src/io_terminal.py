@@ -1,4 +1,5 @@
 from tabulate import tabulate
+from copy import deepcopy
 import texto as t
 
 def pergunta_id(questao, lista, mostra_lista=False):
@@ -49,9 +50,34 @@ def imprime_lista(cabecalho, lista):
     if (len(lista) == 0):
         print(t.lista_vazia[t.LANG])
     else:
-        # cabecalho da tabela
-        lista_a_imprimir = [["id"] + list(lista[0].keys())]
-        # dados
-        lista_a_imprimir.extend([[id] + list(d.values()) for id, d in enumerate(lista)])
+        lcopia = deepcopy(lista)
 
-        print(tabulate(lista_a_imprimir, headers="firstrow", tablefmt='psql'))
+        listadividida = [[{}]]
+        
+        lenheaders = 0
+        while len(lcopia[0]) > 0:
+            key = list(lcopia[0].keys()).pop(0)
+            listadividida[-1][-1][key] = lcopia[0].pop(key)
+            lenheaders += len(key)
+            if lenheaders > 60:
+                listadividida.append([{}])
+                lenheaders = 0
+        else:
+            lcopia.pop(0)
+            for elemento in lcopia:
+                for l in listadividida:
+                    l.append({})
+                    while len(elemento) > 0:
+                        key = list(elemento.keys()).pop(0)
+                        if key in l[0]:
+                            l[-1][key] = elemento.pop(key)
+                        else:
+                            break
+                    
+        for l in listadividida:
+            # cabecalho da tabela
+            lista_a_imprimir = [["id"] + list(l[0].keys())]
+            # dados
+            lista_a_imprimir.extend([[id] + list(d.values()) for id, d in enumerate(l)])
+
+            print(tabulate(lista_a_imprimir, headers="firstrow", tablefmt='psql'))
