@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html lang="pt" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>texto &#8212; Documentação Trabalho ADC 1.0</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=039e1c02" />
+    <script src="../_static/documentation_options.js?v=bbb231ee"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=3b002d5c"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Pesquisar" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Código fonte de texto</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Textos impressos do programa em cada idioma (português, espanhol e inglês).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;lang.json&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">langjson</span><span class="p">:</span>
+        <span class="n">LANG</span> <span class="o">=</span> <span class="s2">&quot;pt&quot;</span>
+        <span class="n">langjson</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;{&quot;LANG&quot;: &quot;pt&quot;}&#39;</span><span class="p">)</span>
+
+<span class="k">except</span> <span class="ne">FileExistsError</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">langfile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;lang.json&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">langfile</span><span class="p">)</span>
+        <span class="n">LANG</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;LANG&quot;</span><span class="p">]</span>
+
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">LANG</span> <span class="o">=</span> <span class="s2">&quot;pt&quot;</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">langfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">_idiomasDisponiveis</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;português&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;español&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;english&quot;</span><span class="p">,</span> 
+<span class="p">}</span>
+
+<div class="viewcode-block" id="mudar_lingua">
+<a class="viewcode-back" href="../texto.html#texto.mudar_lingua">[documentos]</a>
+<span class="k">def</span> <span class="nf">mudar_lingua</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Muda a língua do programa para o utilizador e é gravada num json</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">LANG</span>
+
+    <span class="k">for</span> <span class="n">lingua</span> <span class="ow">in</span> <span class="n">_idiomasDisponiveis</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lingua</span><span class="si">}</span><span class="s1"> - </span><span class="si">{</span><span class="n">_idiomasDisponiveis</span><span class="p">[</span><span class="n">lingua</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="n">escolha_novalingua</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot; Escolha a nova língua: &quot;</span><span class="p">,</span>
+        <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot; Escoja el nuevo idioma: &quot;</span><span class="p">,</span>
+        <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot; Choose the new language: &quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">nova_lingua</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">escolha_novalingua</span><span class="p">[</span><span class="n">LANG</span><span class="p">])</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">nova_lingua</span> <span class="ow">in</span> <span class="n">_idiomasDisponiveis</span><span class="p">:</span>
+            <span class="k">break</span>
+    
+    <span class="n">LANG</span> <span class="o">=</span> <span class="n">nova_lingua</span>
+
+    <span class="n">lingua_mudada</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Língua mudada para português.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Idioma cambiado a español.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Language changed to english.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">lingua_mudada</span><span class="p">[</span><span class="n">LANG</span><span class="p">])</span>
+
+    <span class="n">lang_newsave</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;LANG&quot;</span><span class="p">:</span> <span class="n">LANG</span><span class="p">}</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;lang.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">langjson</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">lang_newsave</span><span class="p">,</span> <span class="n">langjson</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># clientes.py</span>
+
+<span class="n">nome</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Nome&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Nombre&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Name&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">morada</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Morada&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Domicilio&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Address&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">localidade</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Localidade&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Localidad&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Locality&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">c_postal</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Código postal&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Código postal&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Postal code&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">nif</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;NIF&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;NIF&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;NIF&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">tel</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Telefone ou telemóvel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Teléfono&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Phone&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">fax</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Fax&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Fax&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Fax&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">email</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Email&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Email&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Email&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">doc_ident</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº do documento de identificação&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº del documento de identificación&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Identification document number&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">emissor</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Emissor do documento de identificação&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Emisor del documento de identificación&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Issuer of the identification document&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">validade</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Ano de validade do documento de identificação&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Año de validez del documento de identificación&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Year of validity of the identification document&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">cacp</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Código de Acesso a Certidão Permanente, no caso de o cliente ser uma empresa&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Código de Acceso al Certificado Permanente, si el cliente es una empresa&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Código de Acesso a Certidão Permanente, if the client is a company&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Data&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Fecha&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Date&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">assinatura</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Assinatura&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Firma&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Signature&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># faturas.py</span>
+
+<span class="n">qualid_cliente</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Qual o id do cliente?&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;¿Cuál es la id del cliente?&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the client id?&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">qualid_veiculo</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Qual o id do veículo?&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;¿Cuál es la id del vehículo?&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the vehicle id?&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">desc_fatura</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Descrição da fatura: &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Descripción de la factura: &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Invoice description: &quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># io_ficheiros.py</span>
+
+<span class="n">guarda_ficheiros</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Os dados nos ficheiros serão sobrepostos. Continuar (s/N)? &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Los datos de los archivos se sobrescribirán. Continuar (s/N)? &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;The data in the files will be overwritten. &#39;s&#39; to continue (save) or &#39;N&#39; to cancel: &quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">grav_cancelada</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Gravação cancelada.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Guardado cancelado.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Saving canceled.&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># io_terminal.py</span>
+
+<span class="n">id_inexistente</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;id inexistente. Tente de novo. Valores admitidos 0 - </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;id inexistente. Intente de nuevo. Valores aceptados 0 - </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;non-existent id. Try again. Allowed values 0 - </span><span class="si">{}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">pausa</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Pressione ENTER para continuar...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Presione ENTER para continuar...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Press ENTER to continue...&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">lista_vazia</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Lista vazia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Lista vacía&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;List empty&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># main.py</span>
+
+<span class="n">novo_cliente</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;novo cliente&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;nuevo cliente&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;new client&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">novo_veiculo</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;novo veículo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;nuevo vehículo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;new vehicle&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">nova_fatura</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;nova fatura&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;nueva factura&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;new invoice&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">list_clientes</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;listagem de clientes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;listado de clientes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;list of clients&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">list_veiculos</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;listagem de veículos&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;listado de vehículos&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;list of vehicles&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">list_faturas</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;listagem das faturas&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;listado de facturas&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;list of invoices&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">guarda_tudo</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;guarda tudo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;guardar todo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;save everything&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">carrega_tudo</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;carrega tudo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;cargar todo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;load everything&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">sair</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;sair&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;salir&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;quit&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">mudarlg</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;mudar língua&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;cambiar idioma&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;change language&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">opcao</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;opção: &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;opción: &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;option: &quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">nao_ha_nada</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Não há clientes ou veículos registados.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;No hay clientes ni vehículos registrados.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;There are no customers or vehicles registered.&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># veiculos.py</span>
+
+<span class="n">marca</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Marca&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Marca&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Brand&quot;</span><span class="p">,</span>
+<span class="p">}</span> 
+<span class="n">matricula</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Matrícula&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Matrícula&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Registration plate&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">reboque</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Reboque&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Remolque&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Trailer&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Data de aquisição&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Fecha de adquisición&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Date of acquisition&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">modelo</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Modelo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Modelo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Model&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">homologacao</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº de homologação&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº de homologación&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Number of homologation&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">categoria</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Categoria&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Categoría&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Category&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">tipo</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Tipo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Tipo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Type&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">cor</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Cor&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Color&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Color&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">n_quadro</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº quadro&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº cuadro&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Vehicle Idendification Number (VIN)&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">n_motor</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº de motor&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº de motor&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Engine Number&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">combustivel</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Tipo de combustível&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Tipo de combustible&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Fuel type&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">n_cilindros</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº de cilindros&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº de cilindros&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº of cylinders&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">cilindrada</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Cilindrada&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Cilindrada&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Displacement&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">pneus_frente</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Pneumáticos frente&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Neumáticos frente&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Front tires&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">retaguarda_pneus</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Pneus da retaguarda&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Neumáticos de la retaguardia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Rear tires&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">peso_max_admis</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Peso máximo admissíveis da frente&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Peso máximo admisible del frente&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Maximum allowable front weight&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">retaguarda_pma</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Peso máximo admissível da retaguarda&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Peso máximo admisible de la retaguardia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Maximum allowable weight of the rear &quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">rebocavel</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Veículo Rebocável&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Vehículo Remolcable&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Towable Vehicle&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">c_trav</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Veículo com travão&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Vehículo con freno&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Vehicle with brake&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">s_trav</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Veículo sem travão&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Vehículo sin freno&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Vehicle without brake&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">poder_elevacao</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Poder de Elevação&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Poder de Elevación&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Lifting Power&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">tipo_caixa</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Tipo da caixa&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Tipo de caja&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Gearbox type&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">comprim_max_caixa</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Comprimento máximo da caixa&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Longitud máxima de la caja&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Maximum gearbox length&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">larg_caixa</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Largura da caixa&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Anchura de la caja&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Gearbox width&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">distancia_eixos</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Distância entre eixos&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Distancia entre ejes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Wheelbase&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">peso_bruto</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Peso bruto total&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Peso bruto total&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Gross weight&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">tara</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Tara&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Peso Vacío&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Unladen weight&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">portas</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº total de Portas&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº total de Puertas&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Total number of doors&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">direita</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº portas direitas&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº puertas derechas&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Number of right doors&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">esquerda</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº portas esquerdas&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº puertas izquierdas&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Number of left doors&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">retaguarda_portas</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº portas retaguarda&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Nº puertas retaguarda&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Number of rear doors&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">lotacao</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Lotação&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Capacidad de asientos&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Seating Capacity&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">matricula_ant</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Matrícula anterior&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Matrícula anterior&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Previous registration plate&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">data_ant</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Data de aquisição da matrícula anterior&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Fecha de adquisición de la atrícula anterior&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Date of acquisition of the previous registration plate&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">pais</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;País de origem do veículo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;País de origen del vehículo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Country of origin of the vehicle&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">anot_esp</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;pt&quot;</span><span class="p">:</span> <span class="s2">&quot;Anotações especiais&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;es&quot;</span><span class="p">:</span> <span class="s2">&quot;Observaciones especiales&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Special notes&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Trabalho ADC</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegação</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">src</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Código do módulo</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Pesquisa rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, a79370.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

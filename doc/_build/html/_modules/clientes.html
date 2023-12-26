@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="pt" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clientes &#8212; Documentação Trabalho ADC 1.0</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=039e1c02" />
+    <script src="../_static/documentation_options.js?v=bbb231ee"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/translations.js?v=3b002d5c"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Pesquisar" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Código fonte de clientes</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">io_terminal</span> <span class="kn">import</span> <span class="n">imprime_lista</span>
+<span class="kn">import</span> <span class="nn">texto</span> <span class="k">as</span> <span class="nn">t</span>
+
+<span class="n">nome_ficheiro_lista_de_clientes</span> <span class="o">=</span> <span class="s2">&quot;lista_de_clientes.pk&quot;</span>
+
+<div class="viewcode-block" id="cria_novo_cliente">
+<a class="viewcode-back" href="../clientes.html#clientes.cria_novo_cliente">[documentos]</a>
+<span class="k">def</span> <span class="nf">cria_novo_cliente</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Pedir os dados de um novo cliente</span>
+
+<span class="sd">    :return: dicionario com o novo cliente, {&quot;nome&quot;: &lt;&lt;nome&gt;&gt;, &quot;nif&quot;: &lt;&lt;nif&gt;&gt;, ...}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">nome</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">nome</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)</span>
+    <span class="n">morada</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">morada</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)</span>
+    <span class="n">localidade</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">localidade</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)</span>
+    <span class="n">c_postal</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">c_postal</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)</span>
+    <span class="n">nif</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">nif</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">))</span>
+    <span class="n">tel</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">tel</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">))</span>
+    <span class="n">fax</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">fax</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">email</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)</span>
+    <span class="n">doc_ident</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">doc_ident</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)</span>
+    <span class="n">emissor</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">emissor</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)</span>
+    <span class="n">validade</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">validade</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)</span>
+    <span class="n">cacp</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">cacp</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2"> (YYYY-MM-DD): &quot;</span><span class="p">)</span>
+    <span class="n">assinatura</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="n">assinatura</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">]</span><span class="si">}</span><span class="s2">: &quot;</span><span class="p">)</span>
+
+    <span class="n">cliente</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Nome&quot;</span><span class="p">:</span> <span class="n">nome</span><span class="p">,</span>
+               <span class="s2">&quot;Morada&quot;</span><span class="p">:</span> <span class="n">morada</span><span class="p">,</span>
+               <span class="s2">&quot;Localidade&quot;</span><span class="p">:</span> <span class="n">localidade</span><span class="p">,</span>
+               <span class="s2">&quot;Código Postal&quot;</span><span class="p">:</span> <span class="n">c_postal</span><span class="p">,</span>
+               <span class="s2">&quot;NIF&quot;</span><span class="p">:</span> <span class="n">nif</span><span class="p">,</span>
+               <span class="s2">&quot;Telefone ou Telemóvel&quot;</span><span class="p">:</span> <span class="n">tel</span><span class="p">,</span>
+               <span class="s2">&quot;Fax&quot;</span><span class="p">:</span> <span class="n">fax</span><span class="p">,</span>
+               <span class="s2">&quot;Email&quot;</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span>
+               <span class="s2">&quot;Nº do documento de identificação&quot;</span><span class="p">:</span> <span class="n">doc_ident</span><span class="p">,</span>
+               <span class="s2">&quot;Emissor do documento de identificação&quot;</span><span class="p">:</span> <span class="n">emissor</span><span class="p">,</span>
+               <span class="s2">&quot;Ano de validade do documento de identificação&quot;</span><span class="p">:</span> <span class="n">validade</span><span class="p">,</span>
+               <span class="s2">&quot;Código de Acesso a Certidão Permanente, no caso de o cliente ser uma empresa&quot;</span><span class="p">:</span> <span class="n">cacp</span><span class="p">,</span>
+               <span class="s2">&quot;Data em formato YYYY-MM-DD&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">,</span>
+               <span class="s2">&quot;Assinatura&quot;</span><span class="p">:</span> <span class="n">assinatura</span>
+               <span class="p">}</span>
+    <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">cliente</span></div>
+
+
+<div class="viewcode-block" id="imprime_lista_de_clientes">
+<a class="viewcode-back" href="../clientes.html#clientes.imprime_lista_de_clientes">[documentos]</a>
+<span class="k">def</span> <span class="nf">imprime_lista_de_clientes</span><span class="p">(</span><span class="n">lista_de_clientes</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Imprime a lista de clientes</span>
+<span class="sd">    </span>
+<span class="sd">    :param lista_de_veiculos: Lista de clientes com o seu dicionario.</span>
+<span class="sd">    :type lista_de_veiculos: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">imprime_lista</span><span class="p">(</span><span class="n">cabecalho</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">list_clientes</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">LANG</span><span class="p">],</span> <span class="n">lista</span><span class="o">=</span><span class="n">lista_de_clientes</span><span class="p">)</span></div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Trabalho ADC</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navegação</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">src</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Código do módulo</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Pesquisa rápida</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Ir" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, a79370.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
